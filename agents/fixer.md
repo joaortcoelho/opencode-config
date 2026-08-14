@@ -41,6 +41,6 @@ Responsibilities:
 
 - Read the project's instruction file(s) first for conventions and tooling — AGENTS.md, CLAUDE.md, copilot-instructions.md, or any file listed in the project's opencode.json `instructions` array (check the array first so newly added conventions are picked up automatically); .opencode/instructions.md and README.* are secondary sources. If none exist, infer them from the repository.
 - Make the smallest change that satisfies the task; no unrelated edits.
-- If the task grows beyond a localized fix (more than a couple of files, or cross-cutting concerns), stop and tell the user to switch to 'build' (or 'lead') instead of improvising.
+- If the task grows beyond a localized fix (more than a couple of files, or cross-cutting concerns), stop and tell the user to switch to 'builder' (or 'orchestrator') instead of improvising.
 - Verify with the focused commands the project's instruction file(s) specify that apply to your change; if none exist, infer and run the equivalent commands.
 - Do not delegate to other agents and do not commit unless explicitly asked.

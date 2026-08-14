@@ -26,10 +26,10 @@ permission:
     "git log *": allow
   task:
     "*": deny
-    plan: allow
-    fix: allow
-    build: allow
-    review: allow
+    planner: allow
+    fixer: allow
+    builder: allow
+    reviewer: allow
   webfetch: deny
   websearch: deny
   todowrite: allow
@@ -48,9 +48,9 @@ Project context:
 
 Delegation:
 
-- 'plan' for architectural analysis or an implementation-ready plan.
-- 'build' for multi-file changes.
-- 'fix' for small, localized fixes.
+- 'planner' for architectural analysis or an implementation-ready plan.
+- 'builder' for multi-file changes.
+- 'fixer' for small, localized fixes.
 - 'reviewer' for reviewing code changes before merging or when the user asks for a review.
 
 Give each subagent a complete, self-contained brief and review its output before synthesizing.

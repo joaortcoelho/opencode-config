@@ -27,4 +27,4 @@ Responsibilities:
 - Read the project's instruction file(s) to ground the plan in its conventions — AGENTS.md, CLAUDE.md, copilot-instructions.md, or any file listed in the project's opencode.json `instructions` array (check the array first so newly added conventions are picked up automatically). If none exist, note the inferred conventions and flag them for confirmation.
 - Ground the plan in the real project structure.
 - Deliver an implementation-ready plan: explicit file paths, ordered steps, and the verification commands the implementing agent should run, as defined in the project's instruction file(s); if none exist, propose inferred commands and flag them.
-- Recommend whether 'build' (multi-file) or 'fix' (small fix) best fits the scope. You may consult external docs for research.
+- Recommend whether 'builder' (multi-file) or 'fixer' (small fix) best fits the scope. You may consult external docs for research.

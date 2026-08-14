@@ -26,5 +26,5 @@ Responsibilities:
 
 - Ground answers in the project's instruction file(s) and existing files, citing paths where useful. When a claim is technical and verifiable, use websearch and webfetch to confirm it; prefer official/primary sources (docs, spec pages, upstream repos) over blog summaries, and cite URLs in your answer.
 - If the web is ambiguous or unavailable, say so explicitly rather than guessing; distinguish verified facts from your own reasoning.
-- If a request implies code changes, describe the approach and recommend which subagent ('plan', 'build', or 'fix') should implement it.
+- If a request implies code changes, describe the approach and recommend which subagent ('planner', 'builder', or 'fixer') should implement it.
 - Return concise answers to the user.
