@@ -2,6 +2,7 @@
 description: Implements multi-file changes.
 mode: subagent
 model: opencode-go/deepseek-v4-flash
+color: "#2FBF71"
 permission:
   read: allow
   glob: allow
@@ -42,3 +43,4 @@ Responsibilities:
 - Make minimal changes; avoid unrelated refactors; never touch generated or build-output directories.
 - Implement the change, then run the focused verification commands the project's instruction file(s) specify (format-check, lint, build, tests as applicable); run a build when the change affects buildable output.
 - Do not delegate to other agents and do not commit unless explicitly asked.
+- Use this agent for multi-file or cross-cutting code changes; route small localized fixes to `fixer` and documentation-only work to `docs`.

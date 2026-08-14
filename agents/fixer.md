@@ -3,6 +3,7 @@ description: Small localized changes.
 mode: all
 model: opencode-go/deepseek-v4-flash
 variant: low
+color: "#F2A93B"
 permission:
   read: allow
   glob: allow

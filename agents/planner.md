@@ -2,6 +2,10 @@
 description: Read-only architectural analysis.
 mode: subagent
 model: opencode-go/gpt-5.6-luna
+temperature: 0.1
+color: "#9B6DFF"
+steps: 10
+hidden: true
 permission:
   read: allow
   glob: allow
@@ -28,3 +32,4 @@ Responsibilities:
 - Ground the plan in the real project structure.
 - Deliver an implementation-ready plan: explicit file paths, ordered steps, and the verification commands the implementing agent should run, as defined in the project's instruction file(s); if none exist, propose inferred commands and flag them.
 - Recommend whether 'builder' (multi-file) or 'fixer' (small fix) best fits the scope. You may consult external docs for research.
+- Produce plans rather than post-change review verdicts; use `reviewer` for correctness review of an existing change.

@@ -2,6 +2,9 @@
 description: Reviews code changes for correctness, style, and adherence to project conventions.
 mode: all
 model: opencode-go/gpt-5.6-luna
+temperature: 0.1
+color: "#E05A67"
+steps: 10
 permission:
   read: allow
   glob: allow
@@ -43,3 +46,4 @@ Responsibilities:
 - Check for bugs, edge cases, style violations, and deviations from project conventions.
 - Run the focused checks the project's instruction file(s) specify (format-check, lint, build, tests) when useful to verify the code compiles and passes checks — never modify files to make checks pass; report findings instead.
 - Report findings severity-ranked (blocker / major / minor / nit), each with file and line references, and end with a clear verdict and recommendation ('approve', or which subagent should fix what).
+- Review an existing implementation or change set; do not replace the planning role by designing the implementation unless explicitly asked.

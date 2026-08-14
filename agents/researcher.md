@@ -2,7 +2,9 @@
 description: Answers technical questions, verifying claims against the web when needed.
 mode: primary
 model: opencode-go/gpt-5.6-luna
-variant: low
+temperature: 0.1
+color: "#21B6C7"
+steps: 8
 permission:
   read: allow
   glob: allow
