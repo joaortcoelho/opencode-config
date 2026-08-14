@@ -2,6 +2,8 @@
 description: Implements multi-file changes.
 mode: subagent
 model: opencode-go/deepseek-v4-flash
+temperature: 0.1
+steps: 20
 color: "#2FBF71"
 permission:
   read: allow

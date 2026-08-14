@@ -1,7 +1,9 @@
 ---
 description: Small localized changes.
-mode: all
+mode: subagent
 model: opencode-go/deepseek-v4-flash
+temperature: 0.1
+steps: 10
 variant: low
 color: "#F2A93B"
 permission:

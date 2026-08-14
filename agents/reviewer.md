@@ -1,6 +1,6 @@
 ---
 description: Reviews code changes for correctness, style, and adherence to project conventions.
-mode: all
+mode: subagent
 model: opencode-go/gpt-5.6-luna
 temperature: 0.1
 color: "#E05A67"
