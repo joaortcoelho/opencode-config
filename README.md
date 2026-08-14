@@ -41,11 +41,12 @@ Defined in [`opencode.json`](./opencode.json):
 | Agent | Purpose | Mode | Model | Variant |
 |---|---|---|---|---|
 | `orchestrator` | Coordinates work and delegates tasks | `primary` | `opencode-go/deepseek-v4-flash` | — |
-| `planner` | Read-only architectural analysis | `subagent` | `opencode-go/gpt-5.6-luna` | — |
+| `planner` | Read-only architectural analysis | `subagent` | `opencode-go/gpt-5.6-luna` | `hidden` |
 | `builder` | Implements multi-file changes | `subagent` | `opencode-go/deepseek-v4-flash` | — |
-| `fixer` | Handles small, localized fixes | `all` | `opencode-go/deepseek-v4-flash` | `low` |
-| `reviewer` | Reviews code changes | `all` | `opencode-go/gpt-5.6-luna` | — |
+| `fixer` | Handles small, localized fixes | `subagent` | `opencode-go/deepseek-v4-flash` | `low` |
+| `reviewer` | Reviews code changes | `subagent` | `opencode-go/gpt-5.6-luna` | — |
 | `researcher` | Answers technical questions and researches documentation | `primary` | `opencode-go/gpt-5.6-luna` | `low` |
+| `docs` | Writes and maintains documentation grounded in the actual codebase | `subagent` | `opencode-go/gpt-5.6-luna` | `hidden` |
 
 ## Workflow
 
