@@ -3,5 +3,19 @@
   "enabled_providers": ["opencode-go"],
   "default_agent": "orchestrator",
   "subagent_depth": 1,
-  "instructions": ["AGENTS.md", "CLAUDE.md", "copilot-instructions.md"]
+  "instructions": ["AGENTS.md", "CLAUDE.md", "copilot-instructions.md"],
+  "agent": {
+    "build": {
+      "disable": true
+    },
+    "plan": {
+      "disable": true
+    },
+    "general": {
+      "disable": true
+    },
+    "explore": {
+      "disable": true
+    }
+  }
 }
