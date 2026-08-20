@@ -9,17 +9,19 @@ permission:
   edit: allow
   bash:
     "*": ask
+    "git *": deny
     "git status": allow
-    "git status *": allow
+    "git status --short": allow
     "git diff": allow
-    "git diff *": allow
+    "git diff --stat": allow
+    "git diff --name-only": allow
+    "git diff --check": allow
     "git log": allow
-    "git log *": allow
-    "git show": allow
-    "git show *": allow
+    "git log --oneline -10": allow
+    "git ls-files": allow
+    "pwd": allow
   todowrite: allow
   question: deny
-  skill: allow
 ---
 
 You implement an approved change and own its complete scoped mutation. You do not plan around the brief, delegate, commit, or hide failures.
