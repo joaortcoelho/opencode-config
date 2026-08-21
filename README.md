@@ -20,7 +20,6 @@ The workflow intentionally combines closely related responsibilities:
 
 ```text
 .
-├── agents.template.md    # starter template for target projects
 ├── agents/
 │   ├── analyst.md
 │   ├── implementer.md
@@ -50,14 +49,15 @@ OpenCode resolves `AGENTS.md` against the project being opened, not this global 
 
 ## Workflow
 
-1. `leader` establishes repository context and classifies the request. For medium-to-large projects, independent read-only analysis may run in parallel with disjoint questions and file sets.
-2. `analyst` investigates and plans non-trivial, unfamiliar, broad, or risky work.
-3. `implementer` performs the approved mutation.
-4. `verifier` runs the applicable checks after every mutation.
-5. `reviewer` reviews every code or configuration mutation, including security and dependency risk when relevant.
-6. `leader` inspects final Git status and diff before reporting completion. Implementation has one owner and mutation/verification gates remain serialized.
+1. `leader` establishes the bounded Context block, classifies risk as low, normal, or high, and chooses a lightweight brief by default or a full brief for normal/high-risk or unfamiliar work.
+2. `analyst` is required for unfamiliar, broad, ambiguous, normal, or high-risk work; obvious low-risk work may skip it only with a recorded reason. It returns a concise Context delta.
+3. `implementer` performs the approved mutation within the explicit scope and returns a changed-file manifest.
+4. `verifier` runs the smallest focused applicable checks after every mutation, recording each as pass, fail, not-run, or not-applicable.
+5. `reviewer` is required for code, configuration, security, dependency, API, schema, migration, and deployment changes; documentation-only or trivial low-risk changes may skip it with a recorded reason.
+6. Mutation and verification remain serialized; independent read-only analysis may run in parallel only with disjoint questions and file sets.
+7. `leader` merges verified Context deltas and inspects final Git status and the actual diff before reporting completion. Failed, missing, or ambiguous verification blocks completion until resolved or explicitly accepted by the user.
 
-Trivial, obvious changes may skip `analyst` only when the leader states why. Failed, missing, or ambiguous verification blocks completion.
+Every delegation has a `Task ID`, one owner, one acceptance criterion, explicit scope, changed-file expectations, and a next stage. Specialists use the canonical concise handoff schema; only the leader merges Context deltas, keeping the full Context block bounded.
 
 ## Permissions
 
