@@ -6,6 +6,19 @@ temperature: 0.1
 steps: 22
 color: "#2FBF71"
 permission:
+  read:
+    "*": allow
+    "**/.env*": deny
+    "**/*.pem": deny
+    "**/*.key": deny
+    "**/*.p12": deny
+    "**/*.pfx": deny
+    "**/id_rsa*": deny
+    "**/credentials*": deny
+    "**/secrets*": deny
+  glob: allow
+  grep: allow
+  list: allow
   edit: allow
   bash:
     "*": ask
@@ -22,6 +35,13 @@ permission:
     "pwd": allow
   todowrite: allow
   question: deny
+  task: deny
+  webfetch: deny
+  websearch: deny
+  doom_loop: deny
+  skill: deny
+  lsp: allow
+  external_directory: deny
 ---
 
 You implement an approved change and own its complete scoped mutation. You do not plan around the brief, delegate, commit, or hide failures.

@@ -61,19 +61,9 @@ Trivial, obvious changes may skip `analyst` only when the leader states why. Fai
 
 ## Permissions
 
-Permissions are defined in two layers:
+Permissions are defined per custom agent so the custom workflow's safety policy does not leak into OpenCode's built-in `plan` and `explore` agents. Secret-file reads are denied for every custom agent. Only `implementer` may edit files; `leader`, `analyst`, `verifier`, and `reviewer` are read-only. Bash is deny-by-default for `leader` and `analyst`, while `implementer` and `verifier` use approval-gated `*: ask` with a narrow read-only Git allowlist and `git *: deny`. `leader` may delegate to the four specialists; `analyst` and `reviewer` may not. `external_directory` is denied for all custom agents.
 
-- The top-level `permission` block in [`opencode.json`](./opencode.json) contains the shared read-only, edit-deny, deny-by-default safety, LSP, and narrow Git policy.
-- Global safety defaults explicitly deny editing, task delegation, and access outside the configured project directory; Bash is denied by default.
-- Per-agent permission blocks are explicit exceptions to the global defaults and contain only intentional overrides, such as delegation, editing, command approval, web access, and todo/question behavior.
-
-OpenCode merges agent permissions with the global configuration, with agent rules taking precedence. Bash permissions use command-pattern matching; the explicit read-only Git allowlist contains only `git status`, `git status --short`, `git diff`, `git diff --stat`, `git diff --name-only`, `git log`, and `git log --oneline -10`. Implementer and verifier additionally have a broad `"git *": deny` rule with an explicit safe Git allowlist for those commands plus `pwd`, `git ls-files`, and `git diff --check`; Linux-specific command denies were removed in favor of approval-gated `*: ask` for other shell commands.
-
-The built-in `plan` and `explore` agents remain available and are read-only under the global policy. Invoking them directly does not run the custom analyst/verifier/reviewer workflow gates.
-
-The installed SDK's permission type formally covers `read`, `edit`, `glob`, `grep`, `list`, `bash`, `task`, `external_directory`, `todowrite`, `question`, `webfetch`, `websearch`, `lsp`, `doom_loop`, and `skill`. Runtime merge behavior and per-key enforcement should still be confirmed against the running OpenCode version.
-
-The leader and read-only agents cannot edit files. The leader can inspect Git state and delegate only to approved specialists. The implementer may edit files, but mutation commands and non-allowlisted shell commands require approval. The verifier requires approval for project checks except the small universal read-only allowlist. Project-specific approved commands belong in an explicit `AGENTS.md` section and still require and obey the applicable approval semantics; dynamic `AGENTS.md` commands are intentionally not encoded into JSON permissions. The reviewer is read-only and performs the final permission and security review.
+The installed SDK's permission type formally covers `read`, `edit`, `glob`, `grep`, `list`, `bash`, `task`, `external_directory`, `todowrite`, `question`, `webfetch`, `websearch`, `lsp`, `doom_loop`, and `skill`. Runtime per-key enforcement should still be confirmed against the running OpenCode version.
 
 The leader carries a bounded Context block between stages: it retains exact file references and acceptance criteria while summarizing verified, decision-relevant findings and replacing superseded details. It does not accumulate whole files or unbounded command output.
 

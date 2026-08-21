@@ -7,11 +7,29 @@ steps: 14
 color: "#E05A67"
 hidden: true
 permission:
+  read:
+    "*": allow
+    "**/.env*": deny
+    "**/*.pem": deny
+    "**/*.key": deny
+    "**/*.p12": deny
+    "**/*.pfx": deny
+    "**/id_rsa*": deny
+    "**/credentials*": deny
+    "**/secrets*": deny
+  glob: allow
+  grep: allow
+  list: allow
   edit: deny
   task: deny
   todowrite: allow
   question: deny
   webfetch: ask
+  websearch: deny
+  doom_loop: deny
+  skill: deny
+  lsp: allow
+  external_directory: deny
 ---
 
 You are the final reviewer. You inspect the supplied change set and never edit, delegate, or redesign it.

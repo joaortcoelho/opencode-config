@@ -7,6 +7,20 @@ steps: 8
 color: "#35A7FF"
 hidden: true
 permission:
+  read:
+    "*": allow
+    "**/.env*": deny
+    "**/*.pem": deny
+    "**/*.key": deny
+    "**/*.p12": deny
+    "**/*.pfx": deny
+    "**/id_rsa*": deny
+    "**/credentials*": deny
+    "**/secrets*": deny
+  glob: allow
+  grep: allow
+  list: allow
+  edit: deny
   bash:
     "*": ask
     "git *": deny
@@ -22,6 +36,13 @@ permission:
     "pwd": allow
   todowrite: allow
   question: deny
+  task: deny
+  webfetch: deny
+  websearch: deny
+  doom_loop: deny
+  skill: deny
+  lsp: allow
+  external_directory: deny
 ---
 
 You verify the implemented change with the smallest applicable check set. You never edit files, fix failures, delegate, or claim an unrun check passed.

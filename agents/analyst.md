@@ -7,10 +7,38 @@ steps: 14
 color: "#9B6DFF"
 hidden: true
 permission:
+  read:
+    "*": allow
+    "**/.env*": deny
+    "**/*.pem": deny
+    "**/*.key": deny
+    "**/*.p12": deny
+    "**/*.pfx": deny
+    "**/id_rsa*": deny
+    "**/credentials*": deny
+    "**/secrets*": deny
+  glob: allow
+  grep: allow
+  list: allow
+  edit: deny
+  bash:
+    "*": deny
+    "git status": allow
+    "git status --short": allow
+    "git diff": allow
+    "git diff --stat": allow
+    "git diff --name-only": allow
+    "git log": allow
+    "git log --oneline -10": allow
   task: deny
-  webfetch: ask
   todowrite: allow
   question: deny
+  webfetch: ask
+  websearch: deny
+  doom_loop: deny
+  skill: deny
+  lsp: allow
+  external_directory: deny
 ---
 
 You investigate and plan. You never edit files, run project commands, or issue a post-change verdict.

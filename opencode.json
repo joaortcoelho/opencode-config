@@ -6,42 +6,6 @@
   "default_agent": "leader",
   "subagent_depth": 1,
   "instructions": ["AGENTS.md"],
-  "permission": {
-    "read": {
-      "*": "allow",
-      "**/.env*": "deny",
-      "**/*.pem": "deny",
-      "**/*.key": "deny",
-      "**/*.p12": "deny",
-      "**/*.pfx": "deny",
-      "**/id_rsa*": "deny",
-      "**/credentials*": "deny",
-      "**/secrets*": "deny"
-    },
-    "glob": "allow",
-    "grep": "allow",
-    "list": "allow",
-    "edit": "deny",
-    "bash": {
-      "*": "deny",
-      "git status": "allow",
-      "git status --short": "allow",
-      "git diff": "allow",
-      "git diff --stat": "allow",
-      "git diff --name-only": "allow",
-      "git log": "allow",
-      "git log --oneline -10": "allow"
-    },
-    "task": "deny",
-    "todowrite": "deny",
-    "question": "deny",
-    "external_directory": "deny",
-    "webfetch": "deny",
-    "websearch": "deny",
-    "doom_loop": "deny",
-    "skill": "deny",
-    "lsp": "allow"
-  },
   "agent": {
     "build": {
       "model": "opencode-go/gpt-5.6-luna"
